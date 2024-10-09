@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeBook Store - Add to Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7f50, #6a5acd);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif; /* Changed to Playfair Display */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .book-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .book {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px;
+            width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex-shrink: 0; /* Prevents cards from shrinking in flex container */
+
+        }
+        .book:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .book h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .book p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .book button {
+            padding: 10px 15px;
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .book button:hover {
+            background-color: #ff4500;
+        }
+        .cart {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart ul li {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .cart ul li:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .back-btn {
+            font-family: Arial, sans-serif;
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-left: 680px;
+            padding: 10px 20px;
+            background-color: #fda049;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-btn:hover {
+            background-color: #65a5ef;
+        }
+
+    </style>
+</head>
+<body>
+    <h1><u>Welcome to MeBook Checkout</u></h1>
+
+    <div class="book-list">
+        <div class="book">
+            <h3>COCOGOOSE</h3>
+            <p>Price: $15</p>
+            <button onclick="addToCart('COCOGOOSE', 15)">Buy Now</button>
+        </div>
+        <div class="book">
+            <h3>SUBLETTER</h3>
+            <p>Price: $5</p>
+            <button onclick="addToCart('SUBLETTER', 5)">Buy Now</button>
+        </div>
+        <div class="book">
+            <h3>WESTPART</h3>
+            <p>Price: $10</p>
+            <button onclick="addToCart('WESTPART', 10)">Buy Now</button>
+        </div>
+        <div class="book">
+            <h3>BEAUTIFULLY</h3>
+            <p>Price: $15</p>
+            <button onclick="addToCart('BEAUTIFULLY', 15)">Buy Now</button>
+        </div>
+        <div class="book">
+            <h3>CLEAVER LANDS</h3>
+            <p>Price: $12</p>
+            <button onclick="addToCart('CLEAVER LANDS', 12)">Buy Now</button>
+        </div>
+    
+    <div class="book">
+        <h3>SHATTERED</h3>
+        <p>Price: $12</p>
+        <button onclick="addToCart('SHATTERED', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>THE ART CITY PLACE</h3>
+        <p>Price: $12</p>
+        <button onclick="addToCart('THE ART CITY PLACE', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>MUSIC ROCKING SERLOT</h3>
+        <p>Price: $12</p>
+        <button onclick="addToCart('MUSIC ROCKING SERLOT', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>OUR HOME IN THE CITY</h3>
+        <p>Price: $12</p>
+        <button onclick="addToCart('OUR HOME IN THE CITY', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>BORING GIRLS</h3>
+        <p>Price: $12</p>
+        <button onclick="addToCart('BORING GIRLS', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>GIVE THANKS IN EVERYTHING</h3>
+        <p>Price: $12</p>
+        <button onclick="addToCart('GIVE THANKS IN EVERYTHING', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>HANDS THAT MUST WAIT</h3>
+        <p>Price: $19</p>
+        <button onclick="addToCart('CHANDS THAT MUST WAIT', 19)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>CASTLE IN THE SEA</h3>
+        <p>Price: $24</p>
+        <button onclick="addToCart('CASTLE IN THE SEA', 24)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>OLD SCHOOL LOVER</h3>
+        <p>Price: $25</p>
+        <button onclick="addToCart('OLD SCHOOL LOVER', 12)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>THE GIVER</h3>
+        <p>Price: $10</p>
+        <button onclick="addToCart('THE GIVER', 10)">Buy Now</button>
+    </div>
+    
+    <div class="book">
+        <h3>THE WRIGHT BROTHERS</h3>
+        <p>Price: $30</p>
+        <button onclick="addToCart('HE WRIGHT BROTHERS', 30)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>RADICAL GARDENING</h3>
+        <p>Price: $10</p>
+        <button onclick="addToCart('RADICAL GARDENING', 10)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>RED QUEEN</h3>
+        <p>Price: $6</p>
+        <button onclick="addToCart('RED QUEEN', 6)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>KILL A MOCKING BIRD</h3>
+        <p>Price: $10</p>
+        <button onclick="addToCart('KILL A MOCKING BIRD', 10)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>HARRY POTTER-3</h3>
+        <p>Price: $13</p>
+        <button onclick="addToCart('HARRY POTTER-3', 13)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>HEROES OF OLYMPUS </h3>
+        <p>Price: $11</p>
+        <button onclick="addToCart('HEROES OF OLYMPUS', 11)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>DIARY OF A WIMPY KID</h3>
+        <p>Price: $15</p>
+        <button onclick="addToCart('DIARY OF A WIMPY KID', 15)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>RANGER'S APPRENTICE</h3>
+        <p>Price: $16</p>
+        <button onclick="addToCart('RANGERS APPRENTICE', 16)">Buy Now</button>
+    </div>
+
+    <div class="book">
+        <h3>PERCY JACKSON</h3>
+        <p>Price: $18</p>
+        <button onclick="addToCart('PERCY JACKSON', 18)">Buy Now</button>
+    </div>
+</div>
+
+
+
+    <div class="cart">
+        <h2>
+            Shopping Cart<i class="fa fa-shopping-cart"></i>
+        </h2>
+        <ul id="cart-items">
+            <li>No items in cart. </li>
+            
+        </ul>
+        <p>Total: $<span id="total-price">0</span></p>
+    </div>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+
+        function addToCart(bookName, price) {
+            // Add the item to the cart array
+            cart.push({ name: bookName, price: price });
+
+            // Update total price
+            totalPrice += price;
+
+            // Update the UI
+            const cartItems = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            // Clear previous cart items
+            cartItems.innerHTML = '';
+
+            // Display each item in the cart
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                cartItems.appendChild(li);
+            });
+
+            // Update total price display
+            totalPriceElement.textContent = totalPrice;
+
+            // If this is the first item added, remove the "No items in cart" message
+            if (cart.length === 1) {
+                const emptyMessage = document.querySelector('#cart-items li');
+                if (emptyMessage) {
+                    emptyMessage.remove();
+                }
+            }
+        }
+    </script>
+
+<a href="index.html" class="back-btn">Go Back to Book List</a>
+
+</body>
+</html>

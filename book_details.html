@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Details - Mebook</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url(image/transparent.png);
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+           font-size: 4em;
+           text-align: center;
+           color: #141313;
+           font-family: 'Playfair Display', serif; /* Changed to Playfair Display */
+           letter-spacing: 1px; /* Increase spacing between letters */
+           text-transform: uppercase; /* Makes the text all uppercase */
+           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+           margin-top: 20px; /* Add spacing at the top for better positioning */
+}
+
+
+.heading-ribbon {
+    display: inline-block;
+    position: relative;
+    padding: 1px 25px; /* Adjust padding for space inside */
+    background: linear-gradient(135deg, #fd67bc, #feb47b); /* Gradient colors */
+    border: 2px solid #010101; /* Solid border around the box */
+    text-align: center;
+    color: #141313;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds depth */
+    margin-left: 550px ;
+    font-family: 'Playfair Display', serif;
+    font-size: 9px;
+    border-radius: 35px;
+}
+
+.heading-ribbon::before,
+.heading-ribbon::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #f5f5f5;
+    border: 3px solid #141313;
+    top: 100%;
+    z-index: -1;
+}
+
+.heading-ribbon::before {
+    left: 0;
+    transform: rotate(45deg); /* Creates angled effect on left */
+}
+
+.heading-ribbon::after {
+    right: 0;
+    transform: rotate(-45deg); /* Creates angled effect on right */
+}
+
+
+
+        h2 {
+            font-size: 2em;
+            font-family: 'Playfair Display', serif; /* Elegant font style */
+            color: #060606;
+            text-transform: uppercase; /* Adds a bold and prominent look */
+            letter-spacing: 1px; /* Adds spacing between letters for a sophisticated look */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            margin-bottom: 15px; /* Slightly larger margin for better spacing */
+            border-bottom: 2px solid #060606; /* Adds a stylish underline */
+            padding-bottom: 5px; 
+            margin-left: 10px;
+        }
+        .book-card {
+            display: flex;
+            background: linear-gradient(135deg, #f6d4ed, #feeec4); /* Light gradient */
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        }
+
+        .book-card:hover {
+         transform: scale(1.05); /* Slight zoom effect on hover */
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        }
+
+        .book-cover {
+            width: 160px;
+            margin-right: 20px;
+            border-radius: 5px;
+
+        }
+        .book-details {
+            flex: 1;
+        }
+        .book-details h3 {
+            margin-top: 0;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+        }
+        .book-details p {
+            color: #555;
+            margin-bottom: 8px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+
+        .book-card1{
+            display: flex;
+            background: linear-gradient(135deg, #f6d4ed, #feeec4); /* Light gradient */
+            margin-bottom: 20px;
+            margin-left: 75px;
+            margin-right: 75px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+
+        }
+
+
+
+        .book-card1:hover {
+         transform: scale(1.05); /* Slight zoom effect on hover */
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        }
+
+        
+
+
+        .f_btn {
+         display: inline-block;
+         margin-top: 10px;
+         padding: 10px 15px;
+         background-color: #5b9df4;
+         color: #fff;
+         text-decoration: none;
+         border-radius: 5px;
+         transition: background-color 0.3s ease;
+        }
+
+        .f_btn:hover {
+          background-color: #046ff3;
+        }
+
+
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heading-ribbon">
+            <h1><u>Book Details</u></h1>
+        </div>
+
+        <!-- Featured Books Section -->
+        <h2>Featured Books</h2>
+
+        <!-- Book 1: COCOGOOSE -->
+        <div class="book-card">
+            <img src="image\book_1.jpg" alt="COCOGOOSE Book Cover" class="book-cover">
+            <div class="book-details">
+                <i>  <h3>COCOGOOSE</h3>
+                <p><strong>Genre:</strong> Romantic</p>
+                <p><strong>Description:</strong>
+                    
+                    In this tender and captivating romance,COCOGOOSE follows the intertwining lives of two individuals from vastly different worlds. Set in a bustling city, the novel delves into the complexities of modern love, where chance encounters and personal struggles shape the dynamics of their relationship. With rich character development, witty dialogue, and moments of vulnerability, COCOGOOSE beautifully portrays the challenges and triumphs of love, loyalty, and self-discovery. Through the laughter, heartache, and quiet moments, readers are drawn into a story that is both heartwarming and poignant. Perfect for fans of contemporary romance with a dash of emotional depth.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Book 2: SUBLETTER -->
+        <div class="book-card">
+            <img src="image\book_2.jpg" alt="SUBLETTER Book Cover" class="book-cover">
+            <div class="book-details">
+                <i>  <h3>SUBLETTER</h3>
+                <p><strong>Genre:</strong> A Girl Alone</p>
+                <p><strong>Description:</strong> 
+
+                    In this powerful and gripping novel, SUBLETTER tells the story of a young woman who finds herself alone in a new city, forced to navigate life's challenges without the safety net of family or friends. As she struggles to find stability, she sublets an apartment from a mysterious stranger, leading her into a web of secrets, unexpected friendships, and self-discovery. The book explores themes of independence, resilience, and the complexities of modern life as the protagonist faces emotional and psychological battles. Tense, moving, and at times unsettling, SUBLETTER is a profound exploration of what it means to stand alone in a chaotic world. Perfect for readers who love stories of personal strength and survival.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Book 3: WESTPART -->
+        <div class="book-card">
+            <img src="image\book_3.jpg" alt="WESTPART Book Cover" class="book-cover">
+            <div class="book-details">
+                <i>  <h3>WESTPART</h3>
+                <p><strong>Genre:</strong> Adventure</p>
+                <p><strong>Description:</strong> 
+
+                    Westpart is a pulse-pounding adventure that thrusts readers into the heart of an untamed jungle, where survival is the only goal. When a group of travelers finds themselves stranded after an unexpected crash in the dense wilderness, they must rely on their wits, instincts, and each other to make it out alive. As they journey deeper into the jungle, they face treacherous terrain, dangerous wildlife, and hidden perils that test their limits. With tension mounting and secrets unraveling, Westpart combines raw survival with personal revelations, making it a gripping and immersive tale of courage, endurance, and the human spirit. Perfect for readers who crave action-packed adventure and suspense.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Book 4: BEAUTIFULLY -->
+        <div class="book-card">
+            <img src="image\book_4.jpg" alt="BEAUTIFULLY Book Cover" class="book-cover">
+            <div class="book-details">
+                <i> <h3>BEAUTIFULLY</h3>
+                <p><strong>Genre:</strong> Horror</p>
+                <p><strong>Description:</strong>
+
+                    Beautifully is a chilling horror tale that will grip readers from the very first page. Set in a seemingly serene small town, the story follows a young woman who begins to experience terrifying, unexplainable events after moving into an old, beautifully restored home. As strange occurrences intensify, she uncovers a dark and disturbing history tied to the house and its previous inhabitants. With every shadow, every whisper, the suspense builds, drawing her deeper into a nightmare from which there seems to be no escape. Beautifully weaves psychological horror with supernatural elements, keeping readers on the edge of their seats until the haunting and unexpected conclusion. Perfect for fans of spine-tingling, atmospheric horror.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+
+        <!-- Book 5:CLEAVER LANDS -->
+        <div class="book-card">
+            <img src="image\book_5.jpg" alt="CLEAVER LANDS Book Cover" class="book-cover">
+            <div class="book-details">
+                <i><h3>CLEAVER LANDS</h3>
+                <p><strong>Genre:</strong> Thriller</p>
+                <p><strong>Description:</strong> 
+
+                    Cleaver Lands is a gripping thriller set in a remote and mysterious landscape, where danger lurks at every corner. The story follows a seasoned investigator called to unravel a series of bizarre disappearances in an isolated region known for its dark history. As he delves deeper into the secrets of Cleaver Lands, he uncovers a web of lies, betrayals, and hidden agendas that stretch far beyond what he imagined. With unexpected twists and turns at every step, the tension escalates as the investigator races against time to solve the mystery before becoming the next victim. Cleaver Lands is a fast-paced, edge-of-your-seat thriller filled with suspense, deception, and shocking revelations. Perfect for fans of high-stakes thrillers with complex plots and unexpected endings.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+       
+
+        <!-- Book 6: SHATTERED -->
+        <div class="book-card">
+            <img src="image\book_6.jpg" alt="SHATTERED Book Cover" class="book-cover">
+            <div class="book-details">
+                <i> <h3>SHATTERED</h3>
+                <p><strong>Genre:</strong> Animal Stories</p>
+                <p><strong>Description:</strong>
+
+                    Shattered is a collection of poignant and heartfelt animal stories that explore the resilience, struggles, and triumphs of creatures both wild and domestic. Through a series of interconnected tales, readers are taken on emotional journeys that reveal the inner lives of animals as they face adversity, loss, and ultimately, redemption. From a wounded eagle's fight to soar again, to a stray dog finding a place to call home, each story delves into the deep bond between animals and humans, celebrating their shared courage and strength. Shattered is a moving tribute to the beauty and spirit of the animal world, perfect for readers who cherish stories of survival, empathy, and hope.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+
+        <!-- Book 7: THE ART CITY PLACE -->
+        <div class="book-card">
+            <img src="image\book_7.png" alt="THE ART CITY PLACE Book Cover" class="book-cover">
+            <div class="book-details">
+                <i>   <h3>THE ART CITY PLACE</h3>
+                <p><strong>Genre:</strong> Art</p>
+                <p><strong>Description:</strong>
+
+                    The Art City Place transports readers into a vibrant, fictional metropolis where creativity thrives, and the streets pulse with the energy of artists chasing their dreams. This richly layered story follows the intertwined lives of painters, sculptors, musicians, and performers, all striving to make their mark in a city that both nurtures and challenges them. As they grapple with personal and professional struggles—balancing passion, ambition, and survival—their paths converge in unexpected ways, revealing the sacrifices, triumphs, and heartbreaks that come with pursuing a life dedicated to art. With vivid descriptions and compelling characters, The Art City Place captures the essence of the artist's journey, celebrating creativity while shedding light on its emotional toll. Perfect for readers who appreciate stories of artistic struggle, community, and inspiration.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        
+
+<!-- Book 8: MUSIC ROCKING SERLOT -->
+<div class="book-card">
+    <img src="image\book_8.png" alt="MUSIC ROCKING SERLOT Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>MUSIC ROCKING SERLOT</h3>
+        <p><strong>Genre:</strong> Music</p>
+        <p><strong>Description:</strong>
+
+            Music Rocking Serlot is a captivating tale that chronicles the meteoric rise and dramatic fall of a legendary rock band whose sound defined an era. Set against the backdrop of fame, fortune, and the tumultuous world of the music industry, the story delves deep into the lives of the band members as they navigate the highs of success and the devastating lows of personal conflict. From sold-out stadiums and chart-topping hits to backstage feuds and broken friendships, the novel offers an intimate look at the price of fame and the fragility of artistic collaboration. As the band’s iconic sound reverberates through generations, their journey becomes a testament to the power of music, loyalty, and self-destruction. Music Rocking Serlot is perfect for readers who love stories about the raw passion and chaotic energy behind rock n' roll legends.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book 9: OUR HOME IN THE CITY -->
+<div class="book-card">
+    <img src="image\book_10.png" alt="OUR HOME IN THE CITY Book Cover" class="book-cover">
+    <div class="book-details">
+        <i> <h3>OUR HOME IN THE CITY</h3>
+        <p><strong>Genre:</strong> Drama</p>
+        <p><strong>Description:</strong> 
+
+            Our Home in the City is a heartwarming and emotional family drama that captures the essence of life in a bustling urban landscape. Set against the vibrant backdrop of a sprawling city, the story follows the lives of a close-knit family as they navigate the complexities of modern life—balancing careers, relationships, and personal ambitions. Through the challenges of city living, they learn the importance of home, not just as a physical place but as a source of love, strength, and togetherness. With moments of laughter, tension, and heartfelt connection, *Our Home in the City* explores themes of resilience, family bonds, and the quiet beauty found in everyday life. Perfect for readers who enjoy character-driven stories filled with warmth, drama, and the rhythms of city life.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book 10: BORING GIRLS -->
+<div class="book-card">
+    <img src="image\book_11.jpg" alt="BORING GIRLS Book Cover" class="book-cover">
+    <div class="book-details">
+        <i> <h3>BORING GIRLS</h3>
+        <p><strong>Genre:</strong> Coming-of-Age</p>
+        <p><strong>Description:</strong>
+
+            Boring Girls is a delightful coming-of-age story that explores the journey of self-discovery and the power of friendship. Centered around a group of seemingly ordinary girls navigating the trials of adolescence, the narrative is filled with humor, relatable challenges, and poignant life lessons. As they confront the pressures of fitting in, dealing with family expectations, and discovering their unique identities, the girls embark on a journey that transforms their perceptions of what it means to be “boring.” Through shared experiences, laughter, and heartfelt conversations, they learn to embrace their individuality and support one another in the face of life's uncertainties. *Boring Girls* is a charming and uplifting tale that resonates with anyone who has ever felt out of place, reminding readers that true friendship can make the journey of growing up both exciting and meaningful. Perfect for those seeking a lighthearted yet profound exploration of youth and self-acceptance.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book 11: GIVE THANKS IN EVERYTHING -->
+<div class="book-card">
+    <img src="image\book_12.png" alt="GIVE THANKS IN EVERYTHING Book Cover" class="book-cover">
+    <div class="book-details">
+       <i> <h3>GIVE THANKS IN EVERYTHING</h3>
+        <p><strong>Genre:</strong> Inspirational</p>
+        <p><strong>Description:</strong> Give Thanks in Everything is an inspiring guide that encourages readers to cultivate a mindset of gratitude and joy in the face of life's challenges. This uplifting book explores the transformative power of thankfulness, offering practical strategies and heartfelt anecdotes that illustrate how gratitude can enhance well-being and foster resilience. Through reflective exercises, personal stories, and thought-provoking insights, readers are invited to embrace the beauty in everyday moments, even when life feels overwhelming. </p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book 12: HANDS THAT MUST WAIT -->
+<div class="book-card">
+    <img src="image\book_13.png" alt="HANDS THAT MUST WAIT Book Cover" class="book-cover">
+    <div class="book-details">
+        <i> <h3>HANDS THAT MUST WAIT</h3>
+        <p><strong>Genre:</strong> Historical Fiction</p>
+        <p><strong>Description:</strong>
+            
+            Hands That Must Wait is a poignant historical fiction novel set against the backdrop of a tumultuous era marked by conflict and uncertainty. The story follows a diverse group of characters whose lives intersect as they navigate the challenges of war, loss, and societal change. Through their intertwined journeys, themes of perseverance, patience, and hope emerge, illustrating the human spirit's resilience in the face of adversity. 
+            As the characters confront their fears and dreams, they find strength in their relationships, learning that waiting can lead to unexpected revelations and growth. With richly drawn settings and authentic emotional depth, *Hands That Must Wait* immerses readers in a world where every decision carries weight and every moment counts. This moving tale serves as a reminder of the power of hope and the importance of holding on to one's dreams, even in the darkest times. Perfect for fans of historical fiction that blends personal stories with broader societal themes.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book 13: CASTLE IN THE SEA -->
+<div class="book-card">
+    <img src="image\book_14.png" alt="CASTLE IN THE SEA Book Cover" class="book-cover">
+    <div class="book-details">
+        <i><h3>CASTLE IN THE SEA</h3>
+        <p><strong>Genre:</strong> Adventure/Fantasy</p>
+        <p><strong>Description:</strong> Here's an extended description for *Castle in the Sea*:
+           
+            Castle in the Sea is an epic adventure that transports readers to a breathtaking underwater world where a mythical castle lies hidden beneath the ocean's surface. The story follows a brave protagonist who embarks on a quest to uncover the secrets of this enchanted realm, guided by ancient legends and an unyielding sense of curiosity. As they journey through vibrant underwater landscapes teeming with magical creatures and mysterious allies, they must navigate treacherous currents and face formidable challenges.
+            Amidst thrilling battles and unexpected alliances, the protagonist discovers not only the castle's treasures but also their own inner strength and purpose. With richly crafted lore and vivid imagery, *Castle in the Sea* weaves together elements of adventure and fantasy, inviting readers to explore themes of courage, friendship, and the pursuit of dreams. Perfect for fans of imaginative tales filled with wonder and excitement, this novel promises to take readers on an unforgettable journey beneath the waves.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book 14: OLD SCHOOL LOVER -->
+<div class="book-card">
+    <img src="image\book_15.png" alt="OLD SCHOOL LOVER Book Cover" class="book-cover">
+     <div class="book-details">
+        <i> <h3>OLD SCHOOL LOVER</h3>
+        <p><strong>Genre:</strong> Romance</p>
+        <p><strong>Description:</strong> 
+            
+            Old School Lover is a nostalgic romance novel that beautifully captures the essence of rekindling love in a modern world, infused with timeless charm. The story follows two former lovers who unexpectedly cross paths years after their youthful romance ended. As they navigate the complexities of adult life, they find themselves drawn to each other again, reigniting feelings that never truly faded.
+            
+            Set against a backdrop of familiar places that hold cherished memories, the novel explores themes of second chances, personal growth, and the importance of meaningful connections. With heartwarming moments, witty banter, and a touch of old-school romance—think handwritten letters, spontaneous adventures, and heartfelt conversations—the characters embark on a journey to rediscover each other and the love they once shared.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+
+<!------------- -------------------------New Arrivals Section ------------------------------------------------>
+        <h2>New Arrivals</h2>
+
+        <!-- Book 1: THE GIVER -->
+        <div class="book-card1">
+            <img src="image\arrival_1.jpg" alt="THE GIVER Book Cover" class="book-cover">
+            <div class="book-details">
+                <i><h3>THE GIVER</h3>
+                <p><strong>Genre:</strong> Dystopian</p>
+                <p><strong>Description:</strong>In a seemingly perfect, controlled society devoid of pain and strife, twelve-year-old Jonas is selected to be the Receiver of Memory. As he trains under the Giver, Jonas learns about the world's hidden past—one filled with emotions, color, and deep human connections. This thought-provoking novel by Lois Lowry raises powerful questions about conformity, freedom, and the human experience, as Jonas must decide whether to accept the world as it is or risk everything to bring change.
+
+                </p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Book 2: THE WRIGHT BROTHERS -->
+        <div class="book-card1">
+            <img src="image\arrival_2.jpg" alt="THE WRIGHT BROTHERS Book Cover" class="book-cover">
+            <div class="book-details">
+                <i> <h3>THE WRIGHT BROTHERS</h3>
+                <p><strong>Genre:</strong> Biography</p>
+                <p><strong>Description:</strong>David McCullough's riveting biography chronicles the life of Wilbur and Orville Wright, two determined brothers from Ohio who defied all odds to become the first humans to master the art of powered flight. Through hard work, ingenuity, and relentless perseverance, they revolutionized transportation and changed the course of history. This engaging narrative offers insight into their personal lives, struggles, and the scientific brilliance that led to their monumental achievement.</p></i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Book 3: RADICAL GARDENING -->
+        <div class="book-card1">
+            <img src="image\arrival_3.jpg" alt="RADICAL GARDENING Book Cover" class="book-cover">
+            <div class="book-details">
+                <i>  <h3>RADICAL GARDENING</h3>
+                <p><strong>Genre:</strong> Non-fiction</p>
+                <p><strong>Description:</strong> Delving into the radical history of gardens and horticultural spaces, Radical Gardening by George McKay uncovers how gardens have been used as a tool for political activism, protest, and social change throughout history. From guerrilla gardening movements to historical green spaces of resistance, this book highlights how cultivating land can become a symbol of revolution, community, and defiance, bringing a fresh perspective to the intersection of politics and nature.</p> </i>
+                <a href="addtocard.html" class="f_btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Book: RED QUEEN -->
+<div class="book-card1">
+    <img src="image\arrival_4.jpg" alt="RED QUEEN Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>RED QUEEN</h3>
+        <p><strong>Genre:</strong> Fantasy</p>
+        <p><strong>Description:</strong> In a world where society is divided by blood—Silver elites with supernatural abilities and powerless Reds—Mare Barrow is an ordinary Red girl living in poverty. But when she discovers she possesses a deadly power of her own, she is thrust into the world of the Silvers, caught between two princes and a dangerous rebellion. Red Queen by Victoria Aveyard is a fast-paced fantasy filled with political intrigue, betrayal, and thrilling twists, where the fight for justice pits ordinary people against powerful forces.</p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book: KILL A MOCKING BIRD -->
+<div class="book-card1">
+    <img src="image\arrival_5.jpg" alt="KILL A MOCKING BIRD Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>KILL A MOCKING BIRD</h3>
+        <p><strong>Genre:</strong> Fiction</p>
+        <p><strong>Description:</strong> Harper Lee's timeless classic follows young Scout Finch as she grows up in a racially divided Alabama town during the 1930s. Her father, Atticus Finch, an attorney, defends a Black man falsely accused of raping a white woman, exposing the deep-seated prejudice in their community. Through Scout's innocent eyes, we witness the moral struggles of the town and the profound lessons of empathy, courage, and justice. This powerful story continues to resonate with readers across generations.</p></i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book: HARRY POTTER-3 -->
+<div class="book-card1">
+    <img src="image\arrival_6.jpg" alt="HARRY POTTER-3 Book Cover" class="book-cover">
+    <div class="book-details">
+        <i> <h3>HARRY POTTER-3</h3>
+        <p><strong>Genre:</strong> Fantasy</p>
+        <p><strong>Description:</strong>  In the third installment of J.K. Rowling's beloved series, Harry Potter and the Prisoner of Azkaban, Harry returns to Hogwarts for his third year, only to discover that Sirius Black—a dangerous prisoner believed to be involved in the murder of Harry's parents—has escaped from Azkaban. As Harry uncovers more about his past and his connection to Sirius, he faces dark forces and treacherous secrets, leading to a dramatic confrontation. Filled with magic, suspense, and revelations, this novel deepens the mythology of the wizarding world.
+
+        </p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book: HEROES OF OLYMPUS -->
+<div class="book-card1">
+    <img src="image\arrival_7.jpg" alt="HEROES OF OLYMPUS Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>HEROES OF OLYMPUS</h3>
+        <p><strong>Genre:</strong> Fantasy</p>
+        <p><strong>Description:</strong>Rick Riordan's Heroes of Olympus series continues the thrilling adventures of Percy Jackson, but with a new twist—combining Greek and Roman mythology. New demigods like Jason, Piper, and Leo join Percy on an epic quest to prevent the earth mother Gaea from awakening and destroying the world. Along the way, they face terrifying monsters, forge new alliances, and discover their own strengths. This action-packed series is a must-read for fans of mythology and adventure.</p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book: DIARY OF A WIMPY KID -->
+<div class="book-card1">
+    <img src="image\arrival_8.webp" alt="DIARY OF A WIMPY KID Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>DIARY OF A WIMPY KID</h3>
+        <p><strong>Genre:</strong> Comedy</p>
+        <p><strong>Description:</strong> Jeff Kinney’s Diary of a Wimpy Kid offers a hilarious glimpse into the life of Greg Heffley, an awkward middle schooler trying to navigate the trials and tribulations of adolescence. From embarrassing mishaps to his schemes to gain popularity, Greg’s misadventures are told through his journal entries and doodles, capturing the humor and chaos of growing up. With its relatable characters and laugh-out-loud moments, this book is perfect for young readers and anyone who remembers the awkwardness of middle school.</p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book: RANGER'S APPRENTICE -->
+<div class="book-card1">
+    <img src="image\arrival_9.jpg" alt="RANGER'S APPRENTICE Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>RANGER'S APPRENTICE</h3>
+        <p><strong>Genre:</strong> Fantasy</p>
+        <p><strong>Description:</strong> John Flanagan’s Ranger’s Apprentice follows the journey of Will, a small and unassuming orphan chosen to be a Ranger’s apprentice—a group of elite scouts and warriors who protect the kingdom of Araluen. Under the mentorship of the enigmatic Ranger Halt, Will learns the art of stealth, archery, and swordsmanship while uncovering a conspiracy that threatens the entire kingdom. This epic tale of courage, loyalty, and adventure is perfect for fans of action-packed fantasy.</p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+<!-- Book: PERCY JACKSON -->
+<div class="book-card1">
+    <img src="image\arrival_10.jpg" alt="PERCY JACKSON Book Cover" class="book-cover">
+    <div class="book-details">
+        <i>  <h3>PERCY JACKSON</h3>
+        <p><strong>Genre:</strong> Fantasy</p>
+        <p><strong>Description:</strong> Rick Riordan’s Percy Jackson and the Olympians follows the adventures of Percy, a twelve-year-old boy who discovers he’s the son of Poseidon, the Greek god of the sea. As Percy comes to terms with his demigod identity, he embarks on dangerous quests to prevent a war among the gods and save the world from chaos. Full of witty humor, thrilling battles, and Greek mythology, this series captivates readers with its action-packed narrative and unforgettable characters.</p> </i>
+        <a href="addtocard.html" class="f_btn">Buy Now</a>
+    </div>
+</div>
+
+
+
+        <a href="index.html" class="back-btn">Go Back to Book List</a>
+    </div>
+
+</body>
+</html>
